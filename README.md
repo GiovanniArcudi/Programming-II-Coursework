@@ -1,14 +1,14 @@
 # University of Southampton - Programming II Coursework
 
-This repository contains the both Specifications and Source Code for the [COMP1206 - Programming II](https://www.southampton.ac.uk/courses/modules/comp1206.page) Coursework.
+This repository contains the Source Code for the [COMP1206 - Programming II](https://www.southampton.ac.uk/courses/modules/comp1206.page) Coursework.
 
-## ECS Java Training School
+## MathDoku
 
-The aim of this Coursework is to construct a simple simulation of a Java Training School. This school will admit students and they will receive training by a team of specialist instructors. 
+The aim of this Coursework is to implement a [JavaFX](https://en.wikipedia.org/wiki/JavaFX) application to play a logic puzzle game called MathDoku (also known as _[KenKen](https://en.wikipedia.org/wiki/KenKen)_).
 
 <br/>
 
-### 0.1 - Information for markers:
+### Rules of the Game:
 
 ***Completed parts of the Coursework:***
 Parts 1-6.
