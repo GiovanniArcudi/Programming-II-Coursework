@@ -29,12 +29,17 @@ Furthermore, there are groups of adjacent cells called **cages**, which are high
 
 Here's an image of what a MathDoku game looks like (courtesy of [Wikipedia](https://en.wikipedia.org/wiki/KenKen):
 
+<br/>
+
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/KenKenProblem.svg">
 </p>
 
+<br/>
+
 And here's what the solved puzzle looks like:
 
+<br/>
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/KenKenSolution.svg">
