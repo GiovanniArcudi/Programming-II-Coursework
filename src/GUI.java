@@ -1,5 +1,3 @@
-package ga1g19;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -507,38 +505,4 @@ public class GUI extends Application {
     public VBox getNumbersHBoxContainer() {
         return numbersHBoxContainer;
     }
-
-//    public void maximize() {
-//        System.err.println(grid.getGridPane().getWidth());
-//        System.out.println(previousTileSize);
-//
-//        if (grid != null) {
-//            this.previousTileSize = grid.getGridPane().getWidth() / grid.getGridSize();
-//            if (grid.getTilesList() != null) {
-//                for (Tile tile : grid.getTilesList()) {
-//                    GridPane.setHgrow(tile, Priority.ALWAYS);
-//                    GridPane.setVgrow(tile, Priority.ALWAYS);
-//                }
-//            }
-//        }
-//    }
-
-//    public void minimize() {
-//        System.err.println(grid.getGridPane().getWidth());
-//        System.out.println(previousTileSize);
-//
-//        if (previousTileSize != 0) {
-//            if (grid != null) {
-//                if (grid.getTilesList() != null) {
-//                    for (Tile tile : grid.getTilesList()) {
-//                        GridPane.setHgrow(tile, Priority.NEVER);
-//                        GridPane.setVgrow(tile, Priority.NEVER);
-//                        tile.setMinSize(previousTileSize, previousTileSize);
-//                        tile.setMaxSize(previousTileSize, previousTileSize);
-//                        System.err.println(tile.getHeight());
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
