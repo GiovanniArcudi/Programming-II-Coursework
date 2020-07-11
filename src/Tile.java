@@ -1,5 +1,3 @@
-package ga1g19;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.StackPane;
