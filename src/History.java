@@ -1,5 +1,3 @@
-package ga1g19;
-
 import java.util.Stack;
 import javafx.scene.control.Button;
 
