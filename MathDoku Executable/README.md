@@ -1,20 +1,11 @@
-JavaFX MathDoku Instructions:
+# JavaFX MathDoku Instructions
 
+## Running the Application:
+Unzip the folder, open command line, go inside the "bin" folder and run "launch".
 
+## Starting a new game To start a game either click on "Load Game From File" or "Load Game From Text" buttons.
 
-    APPLY ALL THE FOLLOWING INSTRUCTIONS TO AN UNZIPPED VERSION OF "mathdoku2". IF NUMBERS DO NOT APPEAR WHEN YOU SUCCESSFULLY LOAD A NEW GAME USE "mathdoku1".
-
-
-
-
-
-    - RUNNING AN APPLICATION: Unzip the folder, open command line, go inside the "bin" folder and run "launch".
-
-
-    - STARTING A NEW GAME: To start a game either click on "Load Game From File" or "Load Game From Text" buttons.
-
-
-    - CELL COMPLETION:
+**CELL COMPLETION:
 
 	   By Mouse: Click on the cell to activate it and click on the button with a right number to enter/clear it.
 
