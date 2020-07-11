@@ -8,36 +8,145 @@ The aim of this Coursework is to implement a [JavaFX](https://en.wikipedia.org/w
 
 <br/>
 
-### Rules of the Game:
+## Rules of the Game
 
-***Completed parts of the Coursework:***
-Parts 1-6.
+A player needs to fill the cells in an `N x N` square grid with the numbers 1 to N (one number per cell), while adhering to the following constraints:
 
-***Extensions to the Coursework:***
-1)  JavaDoc documentation (which can be found in the doc subfolder).
+* Each number must appear **exactly once in each row**.
 
-2)  Implemented the prerequisites for Subjects and ensured that Students can only enrol on a course if they have all the prerequisites for that Course.
+* Each number must appear **exactly once in each column**.
 
-3)  Allowed Instructors to be able to teach more than one Course in a day (up to a certain limit) and Students to enrol in more than on Course at a time (up to a certain limit). 
+Furthermore, there are groups of adjacent cells called **cages**, which are highlighted on the grid by thicker boundaries. Within each cage is a label showing a **target** number followed by an arithmetic operator (+, -, x, ÷). There is an additional constraint associated with these cages:
 
-**Note:** Extension 3 structurally interferes with the basic specification of the Coursework. Specifically, in order to store the courses assigned to an Instructor, being them more than one now, I am using an ArrayList of Courses rather than a single Course variable. This implies that the accessor method for an Instructor's assigned courses will now return an `ArrayList<Course>` rather than a `Course` object, therefore test TestPart3 cannot be passed unless modified.
+* It must be possible to **obtain the target by applying the arithmetic operator to the numbers in that cage**. For - and ÷, this can be done in any order.
 
 <br/>
 
-### 0.2  - Command Line usage:
-    java Administrator [ConfigurationFileNme.txt] [Number Of Days]
 
-To run the simulation, there must be provided a configuration file in the format specified in the documentation and a certain number of days to run the simulation for. 
-
-In the configuration file it is possible to specify the maximum number of courses that a Student can enrol in and the maximum number of courses that an Instructor can teach, but when it is not specified the default value of one Course is used.
-
-Similarly, if prerequisites for a Subject are not specified, the subject will be automaticaly sat to not have any prerequisites.
-
-Example way of invoking the program:```java Administrator Configuration.txt 100```.
+***Note:*** If a cage consists of a single cell, then no arithmetic operator is shown. The label simply shows the number that must be in that cell.
 
 <br/>
 
-### 0.3 -  Configuration File format:
+Here's an image of what a MathDoku game looks like (courtesy of [Wikipedia](https://en.wikipedia.org/wiki/KenKen):
+
+![Image of empty MathDoku](https://upload.wikimedia.org/wikipedia/commons/f/fd/KenKenProblem.svg)
+
+And here's what the solved puzzle looks like:
+
+![Image of full MathDoku](https://upload.wikimedia.org/wikipedia/commons/f/fe/KenKenSolution.svg)
+
+<br/>
+
+
+## Instructions
+
+You will build your application in parts of increasing difficulty (marks will be awarded for achieving each part, but you only need to hand in your final application). There are 40 marks available in total.
+
+<br/>
+
+### Part One: A Skeleton GUI
+
+First, build a dumb GUI without functionality. This GUI should have controls for the following user actions:
+
+* Undo / redo actions.
+* Clear the board.
+* Load a game from file.
+* Load a game from text input.
+* Option to show mistakes on grid.
+
+There should also be space in your GUI to show the grid, which you will implement in Part Two.
+
+***Note:*** Try to make your GUI resizable, so that it adjusts to different window sizes.
+
+**[4 marks]**
+
+<br/>
+
+### Part Two: The Grid
+
+Display a MathDoku grid in your application. You could start by displaying the example grid in the image above.
+
+***Note:*** Think carefully about how to keep your design general, so that it can cope with different layouts and grid dimensions (you can assume the smallest grid is a `2 x 2` grid and the largest is a `8 x 8` grid).
+
+**[4 marks]**
+
+<br/>
+
+### Part Three: Cell Completion
+
+Write appropriate event handling code to allow users to select cells, enter numbers into them and clear individual cells again. 
+
+You should provide functionality to allow number entering and clearing via the keyboard (e.g., by pressing the number keys or the backspace key) and via the mouse (e.g., by showing appropriate number buttons in your GUI).
+
+**[4 marks]**
+
+<br/>
+
+### Part Four: Win and Mistake Detection
+
+Add functionality to detect when the grid has been filled correctly and solved (adhering to all the constraints in the rules of the game above). Show an appropriate message to the user when this happens.
+
+If the user has selected the option to show mistakes on the grid, immediately highlight rows, columns or cages that do not meet the constraints as numbers are being entered (e.g., if a row contains two 2s, that entire row should be highlighted).
+
+***Note:*** It is tricky to handle cages with the - and ÷ operators that consist of more than two cells. If you wish, you can ignore these, but for full marks, make sure that you can handle them too.
+
+**[5 marks]**
+
+<br/>
+
+### Part Five: Clearing, Undo, Redo
+
+Allow the user to clear the board using the control defined in Part One. A dialog box should be displayed to the user to confirm this action.
+
+Also add functionality to undo the last cell modification(s) and redo previously undone modifications. Disable the buttons as appropriate when undoing or redoing is not possible.
+
+**[4 marks]**
+
+<br/>
+
+### Part Six: Loading Files
+
+Allow the user to load pre-defined MathDoku puzzles. The user should be able to do this in two ways: by choosing a specific file on their computer or by entering the puzzle through an appropriate text input control.
+
+A pre-defined puzzle must be given in the following text format:
+
+* Each line defines one cage of the puzzle.
+* The line starts with the target followed immediately by the arithmetic operator (or none if it's a single cell) for that cage.
+* This is followed by a space and a sequence of cell IDs that belong to the cage (consecutive cell IDs are separated by a comma). Here cells are numbered from 1 to (NxN), where 1 to N are the cells in the top row (left to right), N+1 to 2N are the cells in the second row from the top, and so on.
+
+As an example, the MathDoku puzzle in the images above can be defined as following:
+
+`11+ 1,7
+2÷ 2,3
+20x 4,10
+6x 5,6,12,18
+3- 8,9
+3÷ 11,17
+240x 13,14,19,20
+6x 15,16
+6x 21,27
+7+ 22,28,29
+30x 23,24
+6x 25,26
+9+ 30,36
+8+ 31,32,33
+2÷ 34,35`
+
+You can find more examples of different sizes in this zip file: [examples.zip]() (4x4_divdiff.txt is the only one that contains - and ÷ cages with more than 2 cells).
+
+***Note:*** The same puzzle could be specified in multiple ways. Specifically, the order of the cages and of the cells within a cage do not matter. You should do simple error checking on the input (e.g., whether cells within a cage are adjacent and whether each cell is part of exactly one cage) and notify the user if a mistake was detected. You do not need to check whether the puzzle can be solved.
+
+**[7 marks]**
+
+
+
+
+
+
+
+
+
+
 
 The simulator uses the format of the configuration file provided in the Coursework Specification. However, for the purposes of the extensions the format has been enhanced. 
 
