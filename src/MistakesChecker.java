@@ -1,5 +1,3 @@
-package ga1g19;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
@@ -349,4 +347,3 @@ public class MistakesChecker {
         parallelTransition.play();
     }
 }
-
