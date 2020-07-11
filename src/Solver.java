@@ -1,5 +1,3 @@
-package ga1g19;
-
 // This class defines a Grid solver.
 public class Solver {
     private Grid grid;
