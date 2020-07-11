@@ -1,5 +1,3 @@
-package ga1g19;
-
 import java.util.ArrayList;
 
 // This class defines a grid's column.
