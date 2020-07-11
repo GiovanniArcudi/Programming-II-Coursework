@@ -16,9 +16,9 @@ A player needs to fill the cells in an `N x N` square grid with the numbers 1 to
 
 * Each number must appear **exactly once in each column**.
 
-Furthermore, there are groups of adjacent cells called **cages**, which are highlighted on the grid by thicker boundaries. Within each cage is a label showing a **target** number followed by an arithmetic operator (+, -, x, ÷). There is an additional constraint associated with these cages:
+Furthermore, there are groups of adjacent cells called **cages**, which are highlighted on the grid by thicker boundaries. Within each cage is a label showing a **target** number followed by an arithmetic operator (`+`, `-`, `x`, `÷`). There is an additional constraint associated with these cages:
 
-* It must be possible to **obtain the target by applying the arithmetic operator to the numbers in that cage**. For - and ÷, this can be done in any order.
+* It must be possible to **obtain the target by applying the arithmetic operator to the numbers in that cage**. For `-` and `÷`, this can be done in any order.
 
 <br/>
 
