@@ -1,5 +1,3 @@
-package ga1g19;
-
 // This class defines a change in a tile.
 public class Change {
     private Tile tile;
