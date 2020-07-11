@@ -45,8 +45,8 @@ Click the `Undo` / `Redo` button in the controls Box.
 <br/>
 
 ## Loading files
-* From File: Click `Load game from File` button, select the appropriate File from the FileChooser and then click `OK`.
-* From Text: Click `Load game from Text` button, write the puzzle description in the text area and click `OK`.
+* **From File:** Click `Load game from File` button, select the appropriate File from the FileChooser and then click `OK`.
+* **From Text:** Click `Load game from Text` button, write the puzzle description in the text area and click `OK`.
 
 <br/>
 
