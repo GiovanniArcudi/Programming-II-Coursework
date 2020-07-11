@@ -98,7 +98,7 @@ Add functionality to detect when the grid has been filled correctly and solved (
 
 If the user has selected the option to show mistakes on the grid, immediately highlight rows, columns or cages that do not meet the constraints as numbers are being entered (e.g., if a row contains two 2s, that entire row should be highlighted).
 
-***Note:*** It is tricky to handle cages with the - and ÷ operators that consist of more than two cells. If you wish, you can ignore these, but for full marks, make sure that you can handle them too.
+***Note:*** It is tricky to handle cages with the `-` and `÷` operators that consist of more than two cells. If you wish, you can ignore these, but for full marks, make sure that you can handle them too.
 
 **[5 marks]**
 
@@ -122,7 +122,7 @@ A pre-defined puzzle must be given in the following text format:
 
 * Each line defines one cage of the puzzle.
 * The line starts with the target followed immediately by the arithmetic operator (or none if it's a single cell) for that cage.
-* This is followed by a space and a sequence of cell IDs that belong to the cage (consecutive cell IDs are separated by a comma). Here cells are numbered from 1 to (NxN), where 1 to N are the cells in the top row (left to right), N+1 to 2N are the cells in the second row from the top, and so on.
+* This is followed by a space and a sequence of cell IDs that belong to the cage (consecutive cell IDs are separated by a comma). Here cells are numbered from `1` to `N x N`, where `1` to `N` are the cells in the top row (left to right), `N + 1` to `2N` are the cells in the second row from the top, and so on.
 
 As an example, the MathDoku puzzle in the images above can be defined as following:
 
@@ -186,7 +186,7 @@ Include functionality to generate random games. This should give some appropriat
 
 ## Mark Scheme
 
-A player needs to fill the cells in an `N x N` square grid with the numbers 1 to N (one number per cell), while adhering to the following constraints:
+A player needs to fill the cells in an `N x N` square grid with the numbers `1` to `N` (one number per cell), while adhering to the following constraints:
 
 In total there are 40 marks available, which will contribute 40% towards your overall course mark. The breakdown of available marks is as follows:
 
