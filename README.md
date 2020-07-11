@@ -29,11 +29,16 @@ Furthermore, there are groups of adjacent cells called **cages**, which are high
 
 Here's an image of what a MathDoku game looks like (courtesy of [Wikipedia](https://en.wikipedia.org/wiki/KenKen):
 
-![Image of empty MathDoku](https://upload.wikimedia.org/wikipedia/commons/f/fd/KenKenProblem.svg)
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/KenKenProblem.svg">
+</p>
 
 And here's what the solved puzzle looks like:
 
-![Image of full MathDoku](https://upload.wikimedia.org/wikipedia/commons/f/fe/KenKenSolution.svg)
+
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/KenKenSolution.svg">
+</p>
 
 <br/>
 
@@ -132,7 +137,7 @@ As an example, the MathDoku puzzle in the images above can be defined as followi
         8+ 31,32,33
         2÷ 34,35
 
-You can find more examples of different sizes in this zip file: [examples.zip](https://github.com/GiovanniArcudi/Programming-II-Coursework/blob/master/examples.zip) (4x4_divdiff.txt is the only one that contains - and ÷ cages with more than 2 cells).
+You can find more examples of different sizes in this zip file: [examples.zip](https://github.com/GiovanniArcudi/Programming-II-Coursework/blob/master/examples.zip) (4x4_divdiff.txt is the only one that contains `-` and `÷` cages with more than 2 cells).
 
 ***Note:*** The same puzzle could be specified in multiple ways. Specifically, the order of the cages and of the cells within a cage do not matter. You should do simple error checking on the input (e.g., whether cells within a cage are adjacent and whether each cell is part of exactly one cage) and notify the user if a mistake was detected. You do not need to check whether the puzzle can be solved.
 
@@ -168,7 +173,7 @@ Add the option to automatically solve any puzzle (including those loaded from a 
 
 Include functionality to generate random games. This should give some appropriate options to the user (e.g., board size or difficulty level).
 
-Note: Try to ensure that a randomly generated game has exactly one unique solution.
+***Note:*** Try to ensure that a randomly generated game has exactly one unique solution.
 
 **[4 marks]**
 
