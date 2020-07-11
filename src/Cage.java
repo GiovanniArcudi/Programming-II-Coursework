@@ -1,5 +1,3 @@
-package ga1g19;
-
 import javafx.scene.text.Font;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
@@ -123,4 +121,3 @@ public class Cage {
         return cageGrid;
     }
 }
-
