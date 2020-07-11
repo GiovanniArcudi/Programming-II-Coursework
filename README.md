@@ -116,142 +116,82 @@ A pre-defined puzzle must be given in the following text format:
 
 As an example, the MathDoku puzzle in the images above can be defined as following:
 
-`11+ 1,7
-2÷ 2,3
-20x 4,10
-6x 5,6,12,18
-3- 8,9
-3÷ 11,17
-240x 13,14,19,20
-6x 15,16
-6x 21,27
-7+ 22,28,29
-30x 23,24
-6x 25,26
-9+ 30,36
-8+ 31,32,33
-2÷ 34,35`
+        11+ 1,7
+        2÷ 2,3
+        20x 4,10
+        6x 5,6,12,18
+        3- 8,9
+        3÷ 11,17
+        240x 13,14,19,20
+        6x 15,16
+        6x 21,27
+        7+ 22,28,29
+        30x 23,24
+        6x 25,26
+        9+ 30,36
+        8+ 31,32,33
+        2÷ 34,35
 
-You can find more examples of different sizes in this zip file: [examples.zip]() (4x4_divdiff.txt is the only one that contains - and ÷ cages with more than 2 cells).
+You can find more examples of different sizes in this zip file: [examples.zip](https://github.com/GiovanniArcudi/Programming-II-Coursework/blob/master/examples.zip) (4x4_divdiff.txt is the only one that contains - and ÷ cages with more than 2 cells).
 
 ***Note:*** The same puzzle could be specified in multiple ways. Specifically, the order of the cages and of the cells within a cage do not matter. You should do simple error checking on the input (e.g., whether cells within a cage are adjacent and whether each cell is part of exactly one cage) and notify the user if a mistake was detected. You do not need to check whether the puzzle can be solved.
 
 **[7 marks]**
 
+<br/>
 
+### Part Seven: Font Sizes
 
+Add an option to change the font size for your grid display (affecting the values in cells and the cage labels). Add at least three options (e.g., small, medium and large) and make sure that the text remains aligned within cells.
 
-
-
-
-
-
-
-
-The simulator uses the format of the configuration file provided in the Coursework Specification. However, for the purposes of the extensions the format has been enhanced. 
-
-The format consists of a `CLASS_NAME` and some `PROPERTIES`.
+**[2 marks]**
 
 <br/>
 
-#### Valid `CLASS_NAME` examples:
+### Part Eight: Winning Animation
 
-1. ```school:University of Southamptonn,2,2``` - Describes a school having _name_ = "University of Southampton", _maxEnrollableCourses_ = "2", _maxAssignableCourses_ = "2".
+Add some appropriate animations when a win is detected. Be creative: you could animate the grid, have a colourful display or even add some fireworks over the grid.
 
-2. ```subject:Programming I, 1, 1, 5, 2``` - Describes a Subject having _descriprtion_ = "Programming I", _subjectID_ = "1", _specialismID_ = "1", _duration_ = "5" days, _prerequisites_ = the course whose _subjectID_ is "2".
-        
-3. ```student:Peter,M,60``` - Describes a Student having _name_ = "Peter", _gender_ = "M", _age_ = "20".
-
-4. ```Teacher:Yvonne,F,55``` - Describes a Teacher having _name_ = "Yvonne", _gender_ = "F", _age_ = "55".
+**[2 marks]**
 
 <br/>
 
-#### Valid `PROPERTIES` format:
+### Part Nine: Solver
 
-`PROPERTIES` consist in a certain number of fields, separated by commas (no extra spaces), which describe every object property. 
- The reader fetches all the lines and selects the data needed to create an Object of the specified class. 
+Add the option to automatically solve any puzzle (including those loaded from a file or text input). Use this functionality to also add a "Hint" option, which briefly reveals the correct value of one cell to the user.
 
-For different classes the properties format looks as following:
- * For School objects: `[SchoolName, maxEnrollableCourses (optional), maxAssignableCourses (optional)]`.
- * For Subject objects: `[SubjectName, subjectID, specialismID, duration, prerequisite-prerequisite-prerequisite... (optionals)`].
- * For Person objects: `[SubclassNameAsString (one of: Student, Teacher, Demonstrator, OOTrainer, GUITrainer), gender('M' or 'F'), age]`.
-
-Example `PROPERTIES`:
-
-    school:UniversityOfSouthampton,2,2
-    subject:Lab 1,2,2,2,1-3
-    student:Annabelle,F,31
-    Teacher:Yvonne,F,55
+**[4 marks]**
 
 <br/>
 
+### Part Ten: Random Game Generator
 
-## 1. Extensions
+Include functionality to generate random games. This should give some appropriate options to the user (e.g., board size or difficulty level).
 
-### 1.1 Subjects Prerequisite
-Inspired by Coursework Specifications I have decided to implement possible prerequisites for each ```Subject``` object.
+Note: Try to ensure that a randomly generated game has exactly one unique solution.
 
-This means that the user is able, via the configuration file, to decide if a student has to obtain the certificate for other subjects (specifing which of them by ```subjectID```) to be able to enroll in a course about a specific subject.
-
-<br/>
-
-### 1.2 Modify the way the Configuration File is read by SimulationUtility
-
-To implement this idea I firstly have added to the ```SimulationUtility```'s ```subjectCreator(String properties)``` method the functionality of reading properties strings with one extra property.
-
-To do so, I had to take into account the case for which ```properties.split(",")``` is equal to 5 and store the extra property (prerequisites) in a new String.
-
-Of course, there is no limit to the number of possible prerequisites for a Subject so, I decided that, if more than one presequisite is to be added it should be used "-" to separate the subjectIDs.
-
-In this way, splitting the prerequisites String at every("-"), I easily obtained the prerequisite for that subject, singularily.
-
-#### 1.2.1 - Add Prerequisites property to Subject's class
-In oder to keep track of a Subject's prerequisites, I had to introduce a new property to the Subject's class: prerequisites,
-an ArrayList of Integers, specifically containing all the subjectsIDs of the subjects that a student is required to take before studing this one.
-In this ArrayList I added, one at a time, the subject prerequisite read in SimulationUtility's subjectCreator(String properties) method.
-
-#### 1.2.2 - Modify the criterion for which students are enrolled in a course
-Of course, once the prerequisites are stored they have to be checked every time a student is about to be enrolled in a new course. In my code, this is done in Course's enrolStudent(Student student) method.
-
-#### 1.2.3 - Update the toString() method in School and Subject
-To finish, I updated the toString() method in School and Subject, taking into account that the Subjects now have a new property that has to be printed out.
+**[4 marks]**
 
 <br/>
 
-### 1.3 - Multiple courses handling for Instructors and Students:
-Because I enjoyed working with the input handling from the configuration file, I decided to also implement the second of the proposed Extensions.
+## Mark Scheme
 
-Instructors are now able to teach more than one course in a day (up to a certain limit) and the students can enrol in more than one course at a time (up to a certain limit). 
-    
-#### 1.3.1 - Modify the way the Configuration File is read by SimulationUtility
-To implement this idea I firstly have added to the SimulationUtility's schoolCreator(String properties) the functionality of reading properties strings with one or two extra properties.
-To do so, I had to take into account the case for which properties.split(",") is greater than 1 and store the extra properties (maxAssignableCourses and maxEnrollableCourses) in new Strings.
-If maxAssignableCourses and maxEnrollableCourses are not specified they will by default be set to 1.
+A player needs to fill the cells in an `N x N` square grid with the numbers 1 to N (one number per cell), while adhering to the following constraints:
 
-#### 1.3.2 - Add Prerequisites property to School's class
-In oder to keep track of the maxAssignableCourses and maxEnrollableCourses, I had to introduce 2 new properties to the School's class: int maxAssignableCourses and int axEnrollableCourses.
-        
-#### 1.3.3 - Modify the critarion for which students are enrolled in a course and instructors are assigned to a course
-Of course, once the prerequisites are stored they have to be checked every time a student is about to be enrolled in a new course and an instructor assigned to a course.
-In my code, this is done in School's assignInstructorToEachCourse() method and in School's enrolFreeStudents() method.
+In total there are 40 marks available, which will contribute 40% towards your overall course mark. The breakdown of available marks is as follows:
 
-<br/>
+* Part One : 4 Marks
+* Part Two : 4 Marks
+* Part Three : 4 Marks
+* Part Four : 5 Marks
+* Part Five : 4 Marks
+* Part Six : 7 Marks
+* Part Seven : 2 Marks
+* Part Eight : 2 Marks
+* Part Nine : 4 Marks
+* Part Ten : 4 Marks
 
-### 1.4 - Person Generator:
-To have a more realistic simulation I decided to implement a Person Generator.
-
-Using the `createPerson(String)` method it creates a new `Person` object of the specified subclass, taking a random name and gender from the `RANDOM_NAMES_AND_GENDERS` 20x2 matrix and random generated age.
-
-It also keeps in consideration that the age limit for a Student is lower than the one of an Instructor.
-Being all self contained in the `PersonGenerator` class, I suggest to read the more detailed methods description from there.
-
-<br/>
-
-### 1.5 - Scheduling Updates:
-To improve the general performance of the code I added a method to the School class: `getActiveStudents()`.
-It simply returns an ArrayList of the students enrolled in at least one course. 
-
-Despite being a very basic concept, checking if a student is enrolled to ad least one course has proven to be repeatedly useful throughout the project development, to avoid iterating through all of them many times.  
+You can find a detailed marking scheme [here](https://github.com/GiovanniArcudi/Programming-II-Coursework/blob/master/Marking%20Scheme.pdf).
 
 ---
 
